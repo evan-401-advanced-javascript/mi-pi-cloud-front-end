@@ -3,6 +3,7 @@ import axios from 'axios';
 import Message from './Message';
 import Progress from './Progress';
 import { LoginContext } from '../auth/context';
+import '../../styling/upload.css'
 
 const If = (props) => {
   return props.condition ? props.children : null;
@@ -61,7 +62,7 @@ const FileUpload = () => {
   return (
     <>
       <If condition={context.loggedIn}>
-        <div>
+        <div className="upload">
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
         <div className='custom-file mb-4'>
@@ -84,6 +85,7 @@ const FileUpload = () => {
           className='btn btn-primary btn-block mt-4'
         />
       </form>
+        </div>
       {uploadedFile ? (
         <div className='row mt-5'>
           <div className='col-md-6 m-auto'>
@@ -92,7 +94,7 @@ const FileUpload = () => {
           </div>
         </div>
       ) : null}
-      </div>
+
       </If>
     </>
   );
