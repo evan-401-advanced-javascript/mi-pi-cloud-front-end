@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import Message from './Message';
 import Progress from './Progress';
+import { LoginContext } from '../auth/context';
+
+const If = (props) => {
+  return props.condition ? props.children : null;
+};
 
 const FileUpload = () => {
+  const context = useContext(LoginContext);
+
   const [file, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
   const [uploadedFile, setUploadedFile] = useState({});
@@ -53,6 +60,7 @@ const FileUpload = () => {
 
   return (
     <>
+      <If condition={context.loggedIn}>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
         <div className='custom-file mb-4'>
@@ -83,6 +91,7 @@ const FileUpload = () => {
           </div>
         </div>
       ) : null}
+      </If>
     </>
   );
 };
