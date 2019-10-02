@@ -3,7 +3,8 @@
 import React from 'react';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
-require('dotenv').config()
+
+require('dotenv').config();
 
 
 export const LoginContext = React.createContext();
@@ -44,7 +45,7 @@ class LoginProvider extends React.Component {
     fetch(`${API}/${type}`, options)
       .then((response) => response.text())
       .then((token) => this.validateToken(token))
-      .catch(console.error);
+      .catch(console.error); // eslint-disable-line
   };
 
   // logout
@@ -55,9 +56,9 @@ class LoginProvider extends React.Component {
   // validate Token
   validateToken = (token) => {
     try {
-      console.log('token', token);
+      console.log('token', token); // eslint-disable-line
       const user = jwt.verify(token, process.env.REACT_APP_SECRET);
-      console.log('user', user);
+      console.log('user', user); // eslint-disable-line
       this.setLoginState(true, user, token);
     } catch (e) {
       this.setLoginState(false, null, {});
@@ -75,7 +76,7 @@ class LoginProvider extends React.Component {
     const cookieToken = cookie.load('auth');
     this.validateToken(cookieToken);
   }
-
+  /*eslint-disable */
   render() {
     return (
       <LoginContext.Provider value={this.state}>
@@ -83,6 +84,7 @@ class LoginProvider extends React.Component {
       </LoginContext.Provider>
     );
   }
+  /* eslint-enable */
 }
 
 export default LoginProvider;

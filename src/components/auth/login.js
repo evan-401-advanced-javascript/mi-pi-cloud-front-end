@@ -1,10 +1,10 @@
 // Auth Form for holding input values
 import React from 'react';
 import { LoginContext } from './context';
-import '../../styling/login.css'
+import '../../styling/login.css';
 
-const If = props => {
-  return !!props.condition ? props.children : null;
+const If = (props) => {
+  return props.condition ? props.children : null;
 };
 
 class Login extends React.Component {

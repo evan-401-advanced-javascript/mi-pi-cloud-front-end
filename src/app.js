@@ -4,10 +4,10 @@ import Auth from './components/auth/auth';
 import Login from './components/auth/login';
 import LoginProvider from './components/auth/context';
 import FileUpload from './components/file-server/FileUpload';
-import logo from "./styling/logo512.png";
+import logo from './styling/logo512.png';
 import './styling/App.css';
 
-const Read = props => {
+const Read = () => {
   return (
     <Auth capability="read">
 
@@ -22,12 +22,12 @@ const Read = props => {
   );
 };
 
-const Update = props => {
+const Update = () => {
   return (
     <Auth capability="update">
     </Auth>
   );
-}
+};
 
 class App extends React.Component {
   render() {
@@ -43,4 +43,3 @@ class App extends React.Component {
 }
 
 export default App;
-
