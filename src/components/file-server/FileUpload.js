@@ -61,6 +61,7 @@ const FileUpload = () => {
   return (
     <>
       <If condition={context.loggedIn}>
+        <div>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
         <div className='custom-file mb-4'>
@@ -91,6 +92,7 @@ const FileUpload = () => {
           </div>
         </div>
       ) : null}
+      </div>
       </If>
     </>
   );
