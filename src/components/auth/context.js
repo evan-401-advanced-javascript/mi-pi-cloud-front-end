@@ -3,6 +3,8 @@
 import React from 'react';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
+require('dotenv').config()
+
 
 export const LoginContext = React.createContext();
 
@@ -43,7 +45,7 @@ class LoginProvider extends React.Component {
       .then((response) => response.text())
       .then((token) => this.validateToken(token))
       .catch(console.error);
-  }
+  };
 
   // logout
   logout = () => {
@@ -53,8 +55,9 @@ class LoginProvider extends React.Component {
   // validate Token
   validateToken = (token) => {
     try {
+      console.log('token', token);
       const user = jwt.verify(token, process.env.REACT_APP_SECRET);
-      console.log(user);
+      console.log('user', user);
       this.setLoginState(true, user, token);
     } catch (e) {
       this.setLoginState(false, null, {});

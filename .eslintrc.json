@@ -7,19 +7,11 @@
   "env": {
     "browser": true
   },
-  "settings": {
-    "react": {
-      "version": "16.8.2"
-    }
-  },
   "parser": "babel-eslint",
   "plugins": [
     "jest",
     "react"
   ],
-  "parserOptions": {
-    "sourceType": "module"
-  },
   "rules": {
     "arrow-body-style": "off",
     "class-methods-use-this": "off",
@@ -47,5 +39,10 @@
     "no-trailing-spaces": "off",
     "no-underscore-dangle": "off",
     "strict": "off"
+  },
+  "globals": {
+    "shallow": true,
+    "render": true,
+    "mount": true
   }
 }

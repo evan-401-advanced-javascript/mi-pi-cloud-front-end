@@ -3,6 +3,7 @@ import React from 'react';
 import Auth from './components/auth/auth';
 import Login from './components/auth/login';
 import LoginProvider from './components/auth/context';
+import FileUpload from './components/file-server/FileUpload';
 import logo from "./styling/logo512.png";
 import './styling/App.css';
 
@@ -35,6 +36,7 @@ class App extends React.Component {
         <Read />
         <Login />
         <Update />
+        <FileUpload />
       </LoginProvider>
     );
   }
